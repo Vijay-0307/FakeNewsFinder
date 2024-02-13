@@ -48,16 +48,16 @@ def detect_fake_news():
             return article.text
 
         # Function to generate explanations using T5
-      def generate_explanation(news_text, classification_result):
-        input_text = "Explain why the news article is classified as {}: {}".format(classification_result, news_text)
-    
-        # Tokenize and generate an explanation
-        input_ids = t5_tokenizer.encode(input_text, return_tensors="pt", max_length=200, truncation=True)
-        generated_ids = t5_model.generate(input_ids, max_length=200, num_return_sequences=1, early_stopping=False)
-    
-        explanation = t5_tokenizer.decode(generated_ids[0], skip_special_tokens=True)
-    
-        return explanation
+        def generate_explanation(news_text, classification_result):
+            input_text = "Explain why the news article is classified as {}: {}".format(classification_result, news_text)
+        
+            # Tokenize and generate an explanation
+            input_ids = t5_tokenizer.encode(input_text, return_tensors="pt", max_length=200, truncation=True)
+            generated_ids = t5_model.generate(input_ids, max_length=200, num_return_sequences=1, early_stopping=False)
+        
+            explanation = t5_tokenizer.decode(generated_ids[0], skip_special_tokens=True)
+        
+            return explanation
 
 
         user_input = request.form['article_url']
