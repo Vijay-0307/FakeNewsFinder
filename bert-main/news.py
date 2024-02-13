@@ -49,7 +49,7 @@ def detect_fake_news():
 
         # Function to generate explanations using T5
         def generate_explanation(news_text, classification_result):
-            input_text = f"Explain why the news article is classified as {classification_result}: {news_text}"
+             input_text = "Explain why the news article is classified as {}: {}".format(classification_result, news_text)
 
             # Tokenize and generate an explanation
             input_ids = t5_tokenizer.encode(input_text, return_tensors="pt", max_length=200, truncation=True)
