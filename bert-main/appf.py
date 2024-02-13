@@ -75,7 +75,7 @@ def fake_news_finder():
                     comment_text = html.unescape(comment_text)
                     comments.append(comment_text)
 
-        response = f"Response from the modified code. Keyword: {keyword}"
+        response = print(f"Response from the modified code. Keyword: {keyword}")
 
         return render_template('fake_news_finder.html', videos=videos, comments=comments, response=response)
 
