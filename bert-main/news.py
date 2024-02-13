@@ -64,7 +64,7 @@ def detect_fake_news():
         analysis_result = analyze_fake_news(user_input)
 
         if isinstance(analysis_result, str):
-            return render_template('news.html', response=f"Error analyzing fake news: {analysis_result}")
+            return render_template('news.html')
         else:
             label = analysis_result[0]['label']
             confidence = analysis_result[0]['score'] * 100
